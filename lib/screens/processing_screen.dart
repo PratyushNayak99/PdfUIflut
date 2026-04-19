@@ -58,17 +58,14 @@ class _ProcessingScreenState extends State<ProcessingScreen>
                     color: theme.colorScheme.primary,
                     borderRadius: BorderRadius.circular(4),
                   ),
-                )
-                    .animate(
-                      onPlay: (controller) => controller.repeat(reverse: true),
-                    )
-                    .scaleY(
-                      duration: Duration(milliseconds: 800),
-                      begin: 1.0,
-                      end: 2.5,
-                      curve: Curves.easeInOut,
-                    )
-                    .delay(Duration(milliseconds: (index * 100)));
+                ).animate(
+                  onPlay: (controller) => controller.repeat(reverse: true),
+                ).scaleY(
+                  duration: const Duration(milliseconds: 800),
+                  begin: const Offset(1.0, 1.0),
+                  end: const Offset(1.0, 2.5),
+                  curve: Curves.easeInOut,
+                ).delay(Duration(milliseconds: (index * 100)));
               }),
             ),
             const SizedBox(height: 32),
@@ -87,7 +84,7 @@ class _ProcessingScreenState extends State<ProcessingScreen>
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 32),
-            // Progress bar
+            // Progress bar with shimmer
             Container(
               width: 256,
               height: 4,
@@ -105,14 +102,12 @@ class _ProcessingScreenState extends State<ProcessingScreen>
                     decoration: BoxDecoration(
                       color: theme.colorScheme.primary,
                     ),
-                  )
-                      .animate(
-                        onPlay: (controller) => controller.repeat(),
-                      )
-                      .shimmer(
-                        duration: const Duration(milliseconds: 2500),
-                        color: theme.colorScheme.primary.withOpacity(0.5),
-                      ),
+                  ).animate(
+                    onPlay: (controller) => controller.repeat(),
+                  ).shimmer(
+                    duration: const Duration(milliseconds: 2500),
+                    color: theme.colorScheme.primary.withOpacity(0.5),
+                  ),
                 ),
               ),
             ),
