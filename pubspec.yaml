@@ -23,8 +23,8 @@ dependencies:
   # Local Storage (for settings)
   shared_preferences: ^2.2.2
   
-  # File Picker (for upload simulation)
-  file_picker: ^6.1.1
+  # File Picker (for upload simulation) - UPDATED VERSION
+  file_picker: ^8.0.2
   
   # Toast notifications
   fluttertoast: ^8.2.4
