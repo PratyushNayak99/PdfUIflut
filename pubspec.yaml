@@ -1,0 +1,55 @@
+name: pdf_audio_reader
+description: A Flutter app for converting PDF documents to audio
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # Navigation
+  go_router: ^13.1.0
+  
+  # UI Components
+  google_fonts: ^6.1.0
+  flutter_animate: ^4.3.0
+  
+  # Local Storage (for settings)
+  shared_preferences: ^2.2.2
+  
+  # File Picker (for upload simulation)
+  file_picker: ^6.1.1
+  
+  # Toast notifications
+  fluttertoast: ^8.2.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.8
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  min_sdk_android: 21
+
+flutter_native_splash:
+  color: "#ffffff"
+  color_dark: "#1a1a1a"
+  android: true
+  ios: true
