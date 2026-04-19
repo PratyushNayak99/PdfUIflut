@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import '../components/phone_frame.dart';
 
 class ProcessingScreen extends StatefulWidget {
@@ -49,27 +48,13 @@ class _ProcessingScreenState extends State<ProcessingScreen>
             // Animated waveform bars
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(5, (index) {
-                return Container(
-                  width: 8,
-                  height: 20,
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primary,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                )
-                    .animate(
-                      onPlay: (controller) => controller.repeat(reverse: true),
-                    )
-                    .scaleY(
-                      duration: const Duration(milliseconds: 800),
-                      begin: 1.0,
-                      end: 2.5,
-                      curve: Curves.easeInOut,
-                    )
-                    .delay(Duration(milliseconds: (index * 100)));
-              }),
+              children: [
+                _AnimatedBar(controller: _controller, delay: 0.0),
+                _AnimatedBar(controller: _controller, delay: 0.1),
+                _AnimatedBar(controller: _controller, delay: 0.2),
+                _AnimatedBar(controller: _controller, delay: 0.3),
+                _AnimatedBar(controller: _controller, delay: 0.4),
+              ],
             ),
             const SizedBox(height: 32),
             // Text
@@ -87,7 +72,7 @@ class _ProcessingScreenState extends State<ProcessingScreen>
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 32),
-            // Progress bar with shimmer
+            // Progress bar
             Container(
               width: 256,
               height: 4,
@@ -97,28 +82,52 @@ class _ProcessingScreenState extends State<ProcessingScreen>
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(2),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    width: 256,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.primary,
-                    ),
-                  )
-                      .animate(
-                        onPlay: (controller) => controller.repeat(),
-                      )
-                      .shimmer(
-                        duration: const Duration(milliseconds: 2500),
-                        color: theme.colorScheme.primary.withOpacity(0.5),
+                child: AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Container(
+                      width: 256 * _controller.value,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.primary,
+                        borderRadius: BorderRadius.circular(2),
                       ),
+                    );
+                  },
                 ),
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _AnimatedBar extends StatelessWidget {
+  final AnimationController controller;
+  final double delay;
+
+  const _AnimatedBar({required this.controller, required this.delay});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return AnimatedBuilder(
+      animation: controller,
+      builder: (context, child) {
+        final progress = (controller.value + delay) % 1.0;
+        final height = 20 + (sin(progress * 3.14159 * 2) * 20);
+        return Container(
+          width: 8,
+          height: height,
+          margin: const EdgeInsets.symmetric(horizontal: 4),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.primary,
+            borderRadius: BorderRadius.circular(4),
+          ),
+        );
+      },
     );
   }
 }
