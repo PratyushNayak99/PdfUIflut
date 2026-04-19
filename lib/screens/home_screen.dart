@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../providers/files_provider.dart';
 import '../components/file_item.dart';
+import '../components/phone_frame.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

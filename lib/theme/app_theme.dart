@@ -27,39 +27,40 @@ class AppTheme {
       onBackground: textPrimaryLight,
       surfaceVariant: const Color(0xFFE5E5E5),
     ),
-    textTheme: GoogleFonts.interTextTheme(
-      baseStyle: const TextStyle(
-        color: textPrimaryLight,
-        letterSpacing: -0.5,
-      ),
-    ).copyWith(
+    textTheme: GoogleFonts.interTextTheme().copyWith(
       headlineLarge: const TextStyle(
         fontSize: 40,
         fontWeight: FontWeight.bold,
         letterSpacing: -1.0,
         height: 1.0,
+        color: textPrimaryLight,
       ),
       headlineMedium: const TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,
         letterSpacing: -0.5,
+        color: textPrimaryLight,
       ),
       titleLarge: const TextStyle(
         fontSize: 22,
         fontWeight: FontWeight.w600,
         letterSpacing: -0.3,
+        color: textPrimaryLight,
       ),
       titleMedium: const TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w500,
+        color: textPrimaryLight,
       ),
       bodyLarge: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.normal,
+        color: textPrimaryLight,
       ),
       bodyMedium: const TextStyle(
         fontSize: 14,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
+        color: textPrimaryLight,
       ),
       bodySmall: const TextStyle(
         fontSize: 12,
@@ -68,7 +69,8 @@ class AppTheme {
       ),
       labelSmall: const TextStyle(
         fontSize: 10,
-        fontWeight: FontWeight.medium,
+        fontWeight: FontWeight.w500,
+        color: textPrimaryLight,
       ),
     ),
     scaffoldBackgroundColor: backgroundLight,
@@ -104,39 +106,40 @@ class AppTheme {
       onBackground: textPrimaryDark,
       surfaceVariant: const Color(0xFF2A2A2E),
     ),
-    textTheme: GoogleFonts.interTextTheme(
-      baseStyle: const TextStyle(
-        color: textPrimaryDark,
-        letterSpacing: -0.5,
-      ),
-    ).copyWith(
+    textTheme: GoogleFonts.interTextTheme().copyWith(
       headlineLarge: const TextStyle(
         fontSize: 40,
         fontWeight: FontWeight.bold,
         letterSpacing: -1.0,
         height: 1.0,
+        color: textPrimaryDark,
       ),
       headlineMedium: const TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,
         letterSpacing: -0.5,
+        color: textPrimaryDark,
       ),
       titleLarge: const TextStyle(
         fontSize: 22,
         fontWeight: FontWeight.w600,
         letterSpacing: -0.3,
+        color: textPrimaryDark,
       ),
       titleMedium: const TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w500,
+        color: textPrimaryDark,
       ),
       bodyLarge: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.normal,
+        color: textPrimaryDark,
       ),
       bodyMedium: const TextStyle(
         fontSize: 14,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
+        color: textPrimaryDark,
       ),
       bodySmall: const TextStyle(
         fontSize: 12,
@@ -145,7 +148,8 @@ class AppTheme {
       ),
       labelSmall: const TextStyle(
         fontSize: 10,
-        fontWeight: FontWeight.medium,
+        fontWeight: FontWeight.w500,
+        color: textPrimaryDark,
       ),
     ),
     scaffoldBackgroundColor: backgroundDark,
