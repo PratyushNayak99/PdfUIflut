@@ -33,7 +33,7 @@ class AppTheme {
       titleSmall: const TextStyle(color: textLight),
     ),
     scaffoldBackgroundColor: backgroundLight,
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: surfaceLight,
       elevation: 2,
       shape: RoundedRectangleBorder(
@@ -82,7 +82,7 @@ class AppTheme {
       titleSmall: const TextStyle(color: textDark),
     ),
     scaffoldBackgroundColor: backgroundDark,
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: surfaceDark,
       elevation: 2,
       shape: RoundedRectangleBorder(
