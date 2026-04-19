@@ -25,7 +25,7 @@ class AppTheme {
       onSurface: textLight,
       onBackground: textLight,
     ),
-    textTheme: GoogleFonts.interTextTheme(
+    textTheme: GoogleFonts.interTextTheme().copyWith(
       bodyLarge: const TextStyle(color: textLight),
       bodyMedium: const TextStyle(color: textLight),
       titleLarge: const TextStyle(color: textLight),
@@ -74,7 +74,7 @@ class AppTheme {
       onSurface: textDark,
       onBackground: textDark,
     ),
-    textTheme: GoogleFonts.interTextTheme(
+    textTheme: GoogleFonts.interTextTheme().copyWith(
       bodyLarge: const TextStyle(color: textDark),
       bodyMedium: const TextStyle(color: textDark),
       titleLarge: const TextStyle(color: textDark),
