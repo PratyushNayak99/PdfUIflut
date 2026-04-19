@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../components/phone_frame.dart';
@@ -117,7 +118,7 @@ class _AnimatedBar extends StatelessWidget {
       animation: controller,
       builder: (context, child) {
         final progress = (controller.value + delay) % 1.0;
-        final height = 20 + (sin(progress * 3.14159 * 2) * 20);
+        final height = 20.0 + (math.sin(progress * math.pi * 2) * 20.0);
         return Container(
           width: 8,
           height: height,
