@@ -2,61 +2,90 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static const Color primary = Color(0xFF6366F1);
-  static const Color primaryLight = Color(0xFF818CF8);
-  static const Color backgroundLight = Color(0xFFF1F5F9);
-  static const Color backgroundDark = Color(0xFF0F172A);
-  static const Color surfaceLight = Colors.white;
-  static const Color surfaceDark = Color(0xFF1E293B);
-  static const Color textLight = Color(0xFF0F172A);
-  static const Color textDark = Color(0xFFF1F5F9);
-  static const Color mutedLight = Color(0xFF64748B);
-  static const Color mutedDark = Color(0xFF94A3B8);
+  // Exact colors from React design (Tailwind CSS variables)
+  static const Color primary = Color(0xFF5B8DEF);
+  static const Color primaryForeground = Color(0xFFE8F0FE);
+  static const Color backgroundLight = Color(0xFFF2F2F7);
+  static const Color backgroundDark = Colors.black;
+  static const Color cardLight = Colors.white;
+  static const Color cardDark = Color(0xFF1C1C1E);
+  static const Color textPrimaryLight = Color(0xFF1C1C1E);
+  static const Color textPrimaryDark = Colors.white;
+  static const Color textSecondaryLight = Color(0xFF9CA3AF);
+  static const Color textSecondaryDark = Color(0xFF9CA3AF);
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     colorScheme: ColorScheme.light(
       primary: primary,
-      secondary: primaryLight,
-      surface: surfaceLight,
+      secondary: primaryForeground,
+      surface: cardLight,
       background: backgroundLight,
-      onPrimary: Colors.white,
-      onSecondary: Colors.white,
-      onSurface: textLight,
-      onBackground: textLight,
+      onPrimary: primaryForeground,
+      onSecondary: primary,
+      onSurface: textPrimaryLight,
+      onBackground: textPrimaryLight,
+      surfaceVariant: const Color(0xFFE5E5E5),
     ),
-    textTheme: GoogleFonts.interTextTheme().copyWith(
-      bodyLarge: const TextStyle(color: textLight),
-      bodyMedium: const TextStyle(color: textLight),
-      titleLarge: const TextStyle(color: textLight),
-      titleMedium: const TextStyle(color: textLight),
-      titleSmall: const TextStyle(color: textLight),
+    textTheme: GoogleFonts.interTextTheme(
+      baseStyle: const TextStyle(
+        color: textPrimaryLight,
+        letterSpacing: -0.5,
+      ),
+    ).copyWith(
+      headlineLarge: const TextStyle(
+        fontSize: 40,
+        fontWeight: FontWeight.bold,
+        letterSpacing: -1.0,
+        height: 1.0,
+      ),
+      headlineMedium: const TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+        letterSpacing: -0.5,
+      ),
+      titleLarge: const TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
+        letterSpacing: -0.3,
+      ),
+      titleMedium: const TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+      ),
+      bodyLarge: const TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.normal,
+      ),
+      bodyMedium: const TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+      ),
+      bodySmall: const TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.normal,
+        color: textSecondaryLight,
+      ),
+      labelSmall: const TextStyle(
+        fontSize: 10,
+        fontWeight: FontWeight.medium,
+      ),
     ),
     scaffoldBackgroundColor: backgroundLight,
     cardTheme: CardThemeData(
-      color: surfaceLight,
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-    ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
+      color: cardLight,
       elevation: 0,
-      iconTheme: IconThemeData(color: textLight),
-      titleTextStyle: TextStyle(
-        color: textLight,
-        fontSize: 20,
-        fontWeight: FontWeight.w600,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: primary,
-        foregroundColor: Colors.white,
+        foregroundColor: primaryForeground,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(20),
         ),
       ),
     ),
@@ -66,46 +95,74 @@ class AppTheme {
     useMaterial3: true,
     colorScheme: ColorScheme.dark(
       primary: primary,
-      secondary: primaryLight,
-      surface: surfaceDark,
+      secondary: primaryForeground,
+      surface: cardDark,
       background: backgroundDark,
-      onPrimary: Colors.white,
-      onSecondary: Colors.white,
-      onSurface: textDark,
-      onBackground: textDark,
+      onPrimary: primaryForeground,
+      onSecondary: primary,
+      onSurface: textPrimaryDark,
+      onBackground: textPrimaryDark,
+      surfaceVariant: const Color(0xFF2A2A2E),
     ),
-    textTheme: GoogleFonts.interTextTheme().copyWith(
-      bodyLarge: const TextStyle(color: textDark),
-      bodyMedium: const TextStyle(color: textDark),
-      titleLarge: const TextStyle(color: textDark),
-      titleMedium: const TextStyle(color: textDark),
-      titleSmall: const TextStyle(color: textDark),
+    textTheme: GoogleFonts.interTextTheme(
+      baseStyle: const TextStyle(
+        color: textPrimaryDark,
+        letterSpacing: -0.5,
+      ),
+    ).copyWith(
+      headlineLarge: const TextStyle(
+        fontSize: 40,
+        fontWeight: FontWeight.bold,
+        letterSpacing: -1.0,
+        height: 1.0,
+      ),
+      headlineMedium: const TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+        letterSpacing: -0.5,
+      ),
+      titleLarge: const TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
+        letterSpacing: -0.3,
+      ),
+      titleMedium: const TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+      ),
+      bodyLarge: const TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.normal,
+      ),
+      bodyMedium: const TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+      ),
+      bodySmall: const TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.normal,
+        color: textSecondaryDark,
+      ),
+      labelSmall: const TextStyle(
+        fontSize: 10,
+        fontWeight: FontWeight.medium,
+      ),
     ),
     scaffoldBackgroundColor: backgroundDark,
     cardTheme: CardThemeData(
-      color: surfaceDark,
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-    ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
+      color: cardDark,
       elevation: 0,
-      iconTheme: IconThemeData(color: textDark),
-      titleTextStyle: TextStyle(
-        color: textDark,
-        fontSize: 20,
-        fontWeight: FontWeight.w600,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: primary,
-        foregroundColor: Colors.white,
+        foregroundColor: primaryForeground,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(20),
         ),
       ),
     ),
